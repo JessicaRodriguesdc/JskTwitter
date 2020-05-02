@@ -4,32 +4,34 @@
 	<head>
 		<title>JTwitter</title>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" type="text/css" th:href="@{css/jtwitterEstilo.css}">
+		<link rel="stylesheet" type="text/css" th:href="@{css/jtwitterEstilo.css}"/>
 	</head>
 	<body>
 		<header>
 			<div class="divTopo">
-				<img th:src="@{images/logoTipo.png}" class="imagemLogotipo">
+				<img th:src="@{images/logoTipo.png}" class="imagemLogotipo"/>
 			</div>
 		</header>
 		<!-- cabecalho -->
 		<div class="divCorpoPrincipal">
 			
 			<!-- Postagem -->
-			<div class="divPostagem">
-				<div class="divCriarPostagem">
-					<select class="selectCriarMenssagem">
-						<option value="jessica">Jessica</option>
-						<option value="emily">Emily</option>
-					</select>
-					<br>
-					<textarea class="textoareaCriarMenssagem" placeholder="No que esta pensando"></textarea>
+			<form method="post" th:action="@{/mensagem/criar}" th:object="${mensagem}">
+				<div class="divPostagem">
+					<div class="divCriarPostagem">
+						<select class="selectCriarMenssagem">
+							<option value="jessica">Jessica</option>
+							<option value="emily">Emily</option>
+						</select>
+						<br>
+						<textarea class="textoareaCriarMenssagem" placeholder="No que esta pensando" th:field="*{texto}"></textarea>
+					</div>
 				</div>
-			</div>
-			<!-- fim de postagem -->
-			
-			<input type="button" value="Cancelar" class="buttonCacelar" onClick="location.href='index.html';">
-			<input type="button" value="Criar" class="buttonCriar" onClick="location.href='create.html';">
+				<!-- fim de postagem -->
+				
+				<input type="button" value="Cancelar" class="buttonCacelar" onClick="location.href='index.html';"/>
+				<input type="submit" value="Criar" class="buttonCriar"/>
+			</form>
 		</div>
 		<!-- rodape inicio -->
 	</body>
