@@ -19,9 +19,8 @@
 			<form method="post" th:action="@{/mensagem/criar}" th:object="${mensagem}">
 				<div class="divPostagem">
 					<div class="divCriarPostagem">
-						<select class="selectCriarMenssagem">
-							<option value="jessica">Jessica</option>
-							<option value="emily">Emily</option>
+						<select class="selectCriarMenssagem" th:field="*{usuario.id}">
+							<option th:each="u : ${usuarios}" th:value="${u.id}" th:text="${u.nome} + ' (' + ${u.formattedId} +') '"></option>
 						</select>
 						<br>
 						<textarea class="textoareaCriarMenssagem" placeholder="No que esta pensando" th:field="*{texto}"></textarea>

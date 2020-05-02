@@ -5,6 +5,9 @@ import java.time.LocalDateTime;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import com.jtwitter.domain.usuario.Usuario;
 
 @Entity
 public class Mensagem {
@@ -17,6 +20,9 @@ public class Mensagem {
 	private LocalDateTime dataHora;
 	
 	private String texto;
+	
+	@ManyToOne
+	private Usuario usuario;
 
 	public Integer getId() {
 		return id;
@@ -40,6 +46,14 @@ public class Mensagem {
 
 	public void setTexto(String texto) {
 		this.texto = texto;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	} 
 	
 	
