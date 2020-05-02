@@ -10,7 +10,7 @@ body{
 .imagemLogotipo{
 	margin-top: 15px;
 	margin-bottom: 15px;
-	width:50px; 
+	width:90px; 
 }
 
 .divCorpoPrincipal{
@@ -65,9 +65,13 @@ body{
 }
 
 .imagemUsuario{
-	width: 200%;
+	width: 110%;
 }
 
+.imagemIconeGostar{
+	margin-top: 15px;
+	width:10%; 
+}
 
 .buttonCriar{
 	margin: 20px 0px 20px 0px;

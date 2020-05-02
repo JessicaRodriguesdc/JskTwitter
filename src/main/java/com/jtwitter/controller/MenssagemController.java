@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.jtwitter.domain.mensagem.Mensagem;
 import com.jtwitter.domain.mensagem.MensagemRepository;
@@ -48,6 +49,26 @@ public class MenssagemController {
 			mensagemRepository.save(mensagem);
 			
 		}
-		return "";
+		return "redirect:/mensagem/listar";
+	}
+	
+	@GetMapping(path = "/listar")
+	public String listar(Model model) {
+		//new Sort(Direction.DESC,"dataHora")
+		List<Mensagem> mensagens = mensagemRepository.findAll();
+		
+		model.addAttribute("mensagens", mensagens);
+		
+		return "mensagem-listar";
+	}
+	
+	@GetMapping(path = "/curtir")
+	public String curtir(@RequestParam("msgId") Integer msgId) {
+		
+		Mensagem mensagem =  mensagemRepository.findById(msgId).orElseThrow(null);
+		mensagem.curtir();
+		mensagemRepository.save(mensagem);
+		
+		return "redirect:/mensagem/listar";
 	}
 }
