@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-JskTwitterApplication<JskTwitter>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.jtwitter.JskTwitterApplication",
+            "projectName": "JskTwitter",
+            "args": ""
+        }
+    ]
+}
